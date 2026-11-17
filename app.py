@@ -49,5 +49,8 @@ def advice():
         advice_text = f"Soil moisture is in a moderate demo range. Keep monitoring {crop} and follow local agricultural guidance."
     return jsonify({"advice": advice_text})
 
+import os
+
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
