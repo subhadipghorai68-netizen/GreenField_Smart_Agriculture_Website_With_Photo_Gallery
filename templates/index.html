@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GreenField | Smart Agriculture</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="#"><span class="brand-icon">✳</span><span>GreenField<span class="brand-sub">SMART AGRICULTURE</span></span></a>
+    <div class="side-label">WORKSPACE</div>
+    <a class="nav active" href="#overview">▦ <span>Overview</span></a>
+    <a class="nav" href="#crops">♧ <span>My crops</span></a>
+    <a class="nav" href="#insights">⌁ <span>Farm insights</span></a>
+    <a class="nav" href="#irrigation">◉ <span>Irrigation</span></a>
+    <div class="sidebar-bottom">
+      <div class="help-card"><div class="help-icon">☘</div><b>Grow smarter</b><p>Use your farm data to make informed decisions.</p><a href="#insights">Explore insights →</a></div>
+      <div class="profile"><div class="avatar">GF</div><div><b>Farm manager</b><small>Demo account</small></div><span class="dots">•••</span></div>
+    </div>
+  </aside>
+
+  <main class="main" id="overview">
+    <header class="topbar"><div><span class="eyebrow">TUESDAY, NOVEMBER 17, 2026</span><h1>Farm overview</h1><p class="muted">A clearer view of what’s happening across your farm.</p></div><div class="top-actions"><span class="status-dot"></span><span>System online</span><button class="icon-btn" aria-label="Notifications">♧</button><div class="avatar">GF</div></div></header>
+
+    <section class="hero">
+      <div class="hero-copy"><span class="pill">SMART FARMING DASHBOARD</span><h2>Good things grow<br>with <em>good insights.</em></h2><p>Monitor field conditions, keep an eye on your crops, and make your next farming decision with confidence.</p><a class="hero-link" href="#insights">View farm insights <span>→</span></a></div>
+      <div class="hero-image" role="img" aria-label="Green agricultural fields at sunrise"></div>
+      <div class="hero-stat"><span>FIELD CONDITION</span><b>Looking good</b><small>Based on demo readings</small></div>
+    </section>
+
+
+    <section class="technology-section" id="technology">
+      <div class="section-heading">
+        <div><span class="eyebrow">MODERN FARM EQUIPMENT</span><h2>Smart farming technology</h2></div>
+        <span class="updated">Explore precision agriculture</span>
+      </div>
+      <div class="technology-grid">
+        <article class="technology-card">
+          <img src="https://naanatech.com/images/agriculture_dd.jpg" alt="Agricultural drone sprayer flying above a crop field" loading="lazy">
+          <div class="technology-card-body"><span class="tech-label">PRECISION SPRAYING</span><h3>Agriculture drone sprayer</h3><p>Aerial crop monitoring and targeted field application technology.</p></div>
+        </article>
+        <article class="technology-card">
+          <img src="https://news.flinders.edu.au/blog/2018/10/10/waste-oil-adds-energy-plant-fertiliser/tractor-spraying-pesticides-on-vegetable-field-with-sprayer-at-spring/" alt="Modern tractor working on farmland" loading="lazy">
+          <div class="technology-card-body"><span class="tech-label">FARM MECHANIZATION</span><h3>Modern farm machinery</h3><p>Equipment that supports efficient field preparation and farm work.</p></div>
+        </article>
+        <article class="technology-card">
+          <img src="https://images.unsplash.com/photo-1586771107445-d3ca888129ce?auto=format&fit=crop&w=900&q=85" alt="Agricultural irrigation system watering crops" loading="lazy">
+          <div class="technology-card-body"><span class="tech-label">SMART IRRIGATION</span><h3>Automated irrigation</h3><p>Water-management systems designed to support crop needs.</p></div>
+        </article>
+        <article class="technology-card">
+          <img src="https://images.unsplash.com/photo-1581093458791-9d42e3c6f5b4?auto=format&fit=crop&w=900&q=85" alt="Technology and monitoring equipment" loading="lazy">
+          <div class="technology-card-body"><span class="tech-label">FIELD MONITORING</span><h3>Smart sensors</h3><p>Monitor field conditions with connected soil and environment sensors.</p></div>
+        </article>
+      </div>
+      <p class="gallery-note">Photo gallery images load from external websites, so an internet connection is required.</p>
+    </section>
+
+    <section class="section-heading"><div><span class="eyebrow">LIVE SNAPSHOT</span><h2>Field conditions</h2></div><span class="updated">● Demo sensor readings</span></section>
+    <section class="metrics">
+      <article class="metric"><div class="metric-top"><span>Air temperature</span><span class="metric-icon orange">☀</span></div><div class="metric-value">{{ farm.temperature }}<small>°C</small></div><div class="metric-foot">Comfortable field reading</div><div class="mini-line orange-line"></div></article>
+      <article class="metric"><div class="metric-top"><span>Air humidity</span><span class="metric-icon blue">◌</span></div><div class="metric-value">{{ farm.humidity }}<small>%</small></div><div class="metric-foot">Relative humidity</div><div class="mini-line blue-line"></div></article>
+      <article class="metric"><div class="metric-top"><span>Soil moisture</span><span class="metric-icon green">♧</span></div><div class="metric-value">{{ farm.soil_moisture }}<small>%</small></div><div class="metric-foot">Moderate · check crop needs</div><div class="progress"><span style="width:42%"></span></div></article>
+      <article class="metric"><div class="metric-top"><span>Rain probability</span><span class="metric-icon purple">☂</span></div><div class="metric-value">{{ farm.rain_chance }}<small>%</small></div><div class="metric-foot">Forecast demo value</div><div class="progress purple-progress"><span style="width:25%"></span></div></article>
+    </section>
+
+    <section class="content-grid" id="insights">
+      <article class="panel crop-panel" id="crops"><div class="panel-head"><div><span class="eyebrow">GROWING NOW</span><h2>Crop watch</h2></div><a href="#crops" class="text-link">View all →</a></div>
+        <div class="crop-row"><img src="https://www.azolifesciences.com/article/How-are-Drones-Changing-the-Future-of-Agriculture.aspx" alt="Green crop field"><div class="crop-info"><b>Rice field</b><span>Vegetative stage · Field A</span><div class="crop-progress"><span style="width:68%"></span></div><small>Season progress <b>68%</b></small></div><span class="tag">Healthy</span></div>
+        <div class="crop-row"><img src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=240&q=80" alt="Golden agricultural field"><div class="crop-info"><b>Wheat field</b><span>Early growth · Field B</span><div class="crop-progress"><span style="width:34%"></span></div><small>Season progress <b>34%</b></small></div><span class="tag tag-blue">Growing</span></div>
+        <div class="crop-row"><img src="https://images.unsplash.com/photo-1499529112087-3cb3b73cec95?auto=format&fit=crop&w=240&q=80" alt="Fresh green leaves"><div class="crop-info"><b>Vegetable plot</b><span>Mixed vegetables · Field C</span><div class="crop-progress"><span style="width:82%"></span></div><small>Season progress <b>82%</b></small></div><span class="tag">Healthy</span></div>
+      </article>
+      <article class="panel weather-panel"><div class="panel-head"><div><span class="eyebrow">FIELD ENVIRONMENT</span><h2>Weather outlook</h2></div><span class="weather-icon">☀</span></div><div class="weather-main"><b>28°</b><span>Partly sunny</span></div><p class="muted">Illustrative weather panel — connect a weather API for live forecasts.</p><div class="weather-days"><div><span>NOW</span><b>☀</b><small>28°</small></div><div><span>WED</span><b>☁</b><small>27°</small></div><div><span>THU</span><b>☂</b><small>25°</small></div><div><span>FRI</span><b>☀</b><small>29°</small></div></div></article>
+    </section>
+
+    <section class="bottom-grid" id="irrigation">
+      <article class="panel irrigation-panel"><div class="panel-head"><div><span class="eyebrow">WATER MANAGEMENT</span><h2>Irrigation control</h2></div><span class="tag tag-blue" id="pump-status">Demo · OFF</span></div><p class="muted">Try the demo control. It does not connect to or operate a real pump.</p><div class="pump-control"><div class="pump-symbol">◉</div><div><b>Field A water pump</b><small>Manual demo control</small></div><button id="pump-toggle" class="toggle" aria-label="Toggle demo irrigation"><span></span></button></div><div id="pump-message" class="notice">Pump is currently off in this demo.</div></article>
+      <article class="panel advice-panel"><div class="panel-head"><div><span class="eyebrow">FARM ASSISTANT</span><h2>Quick crop advice</h2></div><span class="assistant-icon">✦</span></div><p class="muted">Get a simple suggestion based on the soil-moisture value you enter.</p><form id="advice-form"><label for="crop">Crop</label><input id="crop" value="Rice" maxlength="40"><label for="moisture">Soil moisture (%)</label><input id="moisture" type="number" min="0" max="100" value="{{ farm.soil_moisture }}" required><button class="primary-btn" type="submit">Get suggestion <span>→</span></button></form><div id="advice-result" class="notice advice-result">Your suggestion will appear here.</div></article>
+    </section>
+    <footer>© 2026 GreenField Smart Agriculture · Student/demo project <span>Built with Python + Flask</span></footer>
+  </main>
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
